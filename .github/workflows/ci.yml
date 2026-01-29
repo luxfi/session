@@ -41,6 +41,8 @@ jobs:
   lint:
     name: Lint
     runs-on: ubuntu-latest
+    # golangci-lint doesn't support Go 1.25 yet, make this job optional
+    continue-on-error: true
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -53,6 +55,7 @@ jobs:
 
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v6
+        continue-on-error: true
         with:
           version: latest
           args: --timeout=5m
