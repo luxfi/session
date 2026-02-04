@@ -44,7 +44,7 @@ var (
 
 // Config holds SessionVM configuration
 type Config struct {
-	SessionTTL    int64  `json:"sessionTTL"`    // Seconds
+	SessionTTL    int64  `json:"sessionTTL"` // Seconds
 	MaxMessages   int    `json:"maxMessages"`
 	MaxChannels   int    `json:"maxChannels"`
 	RetentionDays int    `json:"retentionDays"`
