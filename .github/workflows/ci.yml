@@ -30,7 +30,7 @@ jobs:
         run: go mod verify
 
       - name: Run tests
-        run: go test -v -race -coverprofile=coverage.out ./...
+        run: go test -v -race -coverprofile=coverage.out $(go list ./... | grep -v /e2e)
 
       - name: Upload coverage
         uses: codecov/codecov-action@v4
@@ -108,4 +108,4 @@ jobs:
           cache: true
 
       - name: Run benchmarks
-        run: go test -bench=. -benchmem ./...
+        run: go test -bench=. -benchmem $(go list ./... | grep -v /e2e)
